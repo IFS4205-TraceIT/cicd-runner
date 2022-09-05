@@ -22,7 +22,7 @@ RUNNER_WORKDIR="_work"
 
 # Generate unique name of runner
 RUNNER_NAME=github-runner-$(cat /dev/urandom | tr -dc 'A-Za-z0-9' | head -c 32)
-echo "Runner name: ${RUNNER_NAME}"
+echo "[+] Runner name: ${RUNNER_NAME}"
 
 # Create directory where files are extracted to
 ACTION_RUNNER_ROOT_DIRECTORY="${SAVED_CWD}/${RUNNER_NAME}"
@@ -30,12 +30,11 @@ mkdir -p "${ACTION_RUNNER_ROOT_DIRECTORY}"
 cd "${ACTION_RUNNER_ROOT_DIRECTORY}"
 
 # Download and extact files
-curl -o "$ACTIONS_INSTALL_FILENAME" \
+curl -s -o "$ACTIONS_INSTALL_FILENAME" \
     -L "https://github.com/actions/runner/releases/download/v${GH_RUNNER_VERSION}/actions-runner-linux-${TARGET_ARCH}-${GH_RUNNER_VERSION}.tar.gz"
-tar -xvf "${ACTIONS_INSTALL_FILENAME}"
+tar -zxf "${ACTIONS_INSTALL_FILENAME}"
 rm "${ACTIONS_INSTALL_FILENAME}"
-
-echo "${GITHUB_URL}${ORG_NAME}"
+echo "[+] Downloaded runner"
 
 # Configure runner
 ./config.sh \
@@ -47,3 +46,4 @@ echo "${GITHUB_URL}${ORG_NAME}"
     --runnergroup "Default" \
     --labels "${RUNNER_LABELS}" \
     --work "${RUNNER_WORKDIR}" 
+echo "[+] Configured runner"
