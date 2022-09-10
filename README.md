@@ -2,13 +2,13 @@
 
 ## To setup the `cicd` user
 
-1) Set the permissions of `setup-cicd-user.sh` to executable if not already so.
+1) Set the permissions of `setup_cicd_user.sh` to executable if not already so.
     ```bash
-    $ chmod +x setup-cicd-user.sh
+    $ chmod +x setup_cicd_user.sh
     ```
-2) Run `setup-cicd-user.sh`
+2) Run `setup_cicd_user.sh`
     ```bash
-    $ ./setup-cicd-user.sh
+    $ ./setup_cicd_user.sh
     ```
 
 ## To configure and register a new runner 
@@ -68,7 +68,7 @@ As `root` or via `sudo` to `root`,
 
 3) For each required runner, run `configure_one.sh`:
     ```bash
-    $ runuser -l cicd -c 'cd ~/cicd-runner && RUNNER_TOKEN=... RUNNER_LABELS=... ./configure-one.sh'
+    $ runuser -l cicd -c 'cd ~/cicd-runner && chmod +x ./configure_one.sh && RUNNER_TOKEN=... RUNNER_LABELS=... ./configure_one.sh'
     ```
 
 4) Install and start each runner as a service
