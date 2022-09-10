@@ -45,5 +45,8 @@ rm "${ACTIONS_INSTALL_FILENAME}"
     --labels "${RUNNER_LABELS}" \
     --work "${RUNNER_WORKDIR}" \
     > /dev/null 2>&1
+
+echo "PATH=${PATH}" >> ./.env
+echo "DOCKER_HOST=${DOCKER_HOST}" >> ./.env
     
 echo "${RUNNER_NAME}"
