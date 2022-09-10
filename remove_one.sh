@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -e
 
 # Constants
 SAVED_CWD=$(pwd)
@@ -33,3 +33,5 @@ cd "${ACTION_RUNNER_ROOT_DIRECTORY}"
 # Remove runner directory
 cd "${SAVED_CWD}"
 rm -rf "${ACTION_RUNNER_ROOT_DIRECTORY}"
+
+echo "${RUNNER_NAME}"
