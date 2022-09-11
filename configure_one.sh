@@ -46,6 +46,7 @@ rm "${ACTIONS_INSTALL_FILENAME}"
     --work "${RUNNER_WORKDIR}" \
     > /dev/null 2>&1
 
+# Export required environment variables
 echo "PATH=${PATH}" >> ./.env
 echo "DOCKER_HOST=${DOCKER_HOST}" >> ./.env
     
