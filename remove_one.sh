@@ -28,7 +28,7 @@ fi
 
 # Deregister runner
 cd "${ACTION_RUNNER_ROOT_DIRECTORY}"
-./config.sh remove --token "${RUNNER_TOKEN}"
+./config.sh remove --token "${RUNNER_TOKEN}" > /dev/null 2>&1
 
 # Remove runner directory
 cd "${SAVED_CWD}"
